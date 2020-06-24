@@ -1,0 +1,39 @@
+\section{Команда \algname{squeeze}}\label{PRG.Squeeze}
+
+\subsection{Интерфейс}\label{PRG.Squeeze.IFace}
+
+Входными данными команды~$\algname{squeeze}$ является длина выхода~$n$.
+Число~$n$ должно быть неотрицательным целым кратным~$8$.
+
+Выходными данными является слово~$Y\in\{0,1\}^n$.
+
+Используется алгоритм~$\algname{bash-f}$, определенный в~\ref{F}.
+
+\subsection{Алгоритм}\label{PRG.Squeeze.Alg}
+
+Команда $\algname{squeeze}(n)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Выполнить
+$\algname{commit}(\texttt{OUT})$.
+\item
+Установить
+$Y\leftarrow\perp$.
+\item
+Пока $|Y|+r\leq n$:
+\begin{enumerate}
+\item
+$Y\leftarrow Y\parallel S[\dots r)$;
+\item
+$S\leftarrow\algname{bash-f}(S)$.
+\end{enumerate}
+\item
+Установить
+$pos\leftarrow n-|Y|$.
+\item
+Установить
+$Y\leftarrow Y\parallel S[\dots pos)$.
+\item
+Возвратить~$Y$.
+\end{enumerate}
+

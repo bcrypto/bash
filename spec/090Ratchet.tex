@@ -1,0 +1,30 @@
+\section{Команда \algname{ratchet}}\label{PRG.Ratchet}
+
+\subsection{Интерфейс}\label{PRG.Ratchet.IFace}
+
+Команда~$\algname{ratchet}$ изменяет состояние автомата,
+не принимая и не возвращая данные.
+
+\subsection{Переменные}\label{PRG.Ratchet.Vars}
+
+Используется переменная $T\in\{0,1\}^{1536}$.
+
+\subsection{Алгоритм}\label{PRG.Ratchet.Alg}
+
+Команда $\algname{ratchet}(\perp)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Установить
+$T\leftarrow S$.
+\item
+Выполнить
+$\algname{commit}(\texttt{NULL})$.
+\item
+Установить
+$S\leftarrow S\oplus T$.
+%
+% Другие варианты: 
+% - $S[\dots k)\leftarrow 0^k$, $k\in\{l,2l,r\}$;
+% - $S[\dots r)\leftarrow T[\dots r)$.
+%
+\end{enumerate}

@@ -1,0 +1,39 @@
+\section{Команда \algname{decrypt}}\label{PRG.Decrypt}
+
+\subsection{Интерфейс}\label{PRG.Decrypt.IFace}
+
+Входными данными команды~$\algname{decrypt}$ является зашифрованное 
+сообщение~$Y\in\{0,1\}^{8*}$.
+
+Выходными данными является расшифрованное сообщение~$X\in\{0,1\}^{|Y|}$.
+
+Используется алгоритм~$\algname{bash-f}$, определенный в~\ref{F}.
+
+\subsection{Алгоритм}\label{PRG.Decrypt.Alg}
+
+Команда $\algname{decrypt}(Y)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Выполнить
+$\algname{commit}(\texttt{TEXT})$.
+\item
+Определить
+$(Y_1,Y_2,\ldots,Y_n)=\Split(Y,r)$.
+\item
+Установить
+$X\leftarrow\perp$.
+\item
+Для $i=1,2,\ldots,n$:
+\begin{enumerate}
+\item
+$pos\leftarrow |Y_i|$;
+\item
+$X\leftarrow X\parallel\bigl(S[\dots pos)\oplus Y_i\bigr)$;
+\item
+$S[\dots pos)\leftarrow Y_i$;
+\item
+если $pos=r$, то $S\leftarrow\algname{bash-f}(S)$ и $pos\leftarrow 0$.
+\end{enumerate}
+\item
+Возвратить $X$.
+\end{enumerate}

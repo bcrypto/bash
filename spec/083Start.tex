@@ -1,0 +1,38 @@
+\section{Команда \algname{start}}\label{PRG.Start}
+
+\subsection{Интерфейс}\label{PRG.Start.IFace}
+
+Параметрами команды~\algname{start} являются уровень стойкости 
+$l\in\{128,192,256\}$ и емкость $d\in\{1,2\}$.
+
+Входными данными~$\algname{start}[l,d]$ являются анонс $A\in\{0,1\}^{32*}$
+и ключ $K\in\{0,1\}^{32*}$. Длины $A$ и $K$ не должны превосходить $480$.
+Если $K\neq\perp$, то~$|K|\geq l$.
+
+Выходные данные отсутствуют.
+
+\subsection{Алгоритм}\label{PRG.Start.Alg}
+
+Команда $\algname{start}[l,d](A,K)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Если $K\neq\perp$, то $r\leftarrow 1536-l-dl/2$.
+\item
+Иначе, если $K=\perp$, то $r\leftarrow 1536-2dl$.
+\item
+Установить
+$pos\leftarrow 8+|A|+|K|$.
+\item
+Установить
+$S[\dots pos)\leftarrow 
+\itob{|A|/2+|K|/32}_8\parallel A\parallel K$.
+\item
+Установить
+$S[pos\dots 1472)\leftarrow 0^{1472-pos}$.
+\item
+Установить
+$S[1472\ldots)\leftarrow\itob{l/4+d}_{64}$.
+\item
+Сохранить параметры $(l, d, r, pos)$ вместе с состоянием~$S$.
+\end{enumerate}
+

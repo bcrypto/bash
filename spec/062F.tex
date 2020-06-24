@@ -1,0 +1,78 @@
+\section{Алгоритм \algname{bash-f}}\label{F}
+
+\subsection{Интерфейс}\label{F.IFace}
+
+Sponge-функция задается алгоритмом~$\algname{bash-f}$.
+
+Входными данными~$\algname{bash-f}$ является слово $S\in\{0,1\}^{1536}$,
+аргумент sponge-функции.
+
+Выходными данными является преобразованное слово~$S$,
+значение sponge-функции.
+
+Используется алгоритм~$\algname{bash-s}$, определенный в~\ref{S}.
+
+\subsection{Алгоритм}\label{F.Steps}
+
+Вычисление~$\algname{bash-f}(S)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Определить  
+$(S_0,S_1,\ldots,S_{23})=\Split(S, 64)$.
+
+\item
+Установить 
+$C\leftarrow\hex{B194BAC80A08F53B}$.
+
+\item
+Для $i=1,2,\ldots,24$ выполнить:
+\begin{enumerate}
+\item
+$(m_1,n_1,m_2,n_2)\leftarrow (8,53,14,1)$;
+\item
+для $j=0,1,\ldots,7$:
+\begin{enumerate}
+\item
+$(S_j,S_{8+j},S_{16+j})\leftarrow
+\algname{bash-s}(S_j,S_{8+j},S_{16+j},m_1,n_1,m_2,n_2)$;
+\item
+$(m_1,n_1,m_2,n_2)\leftarrow 
+(7\,m_1\bmod 64,7\,n_1\bmod 64,7\,m_2\bmod 64,7\,n_2\bmod 64)$;
+\end{enumerate}
+\item
+$S\leftarrow  S_{15}\parallel 
+              S_{10}\parallel 
+              S_{9\phantom{0}}\parallel  
+              S_{12}\parallel 
+              S_{11}\parallel 
+              S_{14}\parallel 
+              S_{13}\parallel 
+              S_{8\phantom{0}}\parallel$\par
+\hspace{24pt}$\phantom{S\leftarrow} 
+              S_{17}\parallel 
+              S_{16}\parallel 
+              S_{19}\parallel 
+              S_{18}\parallel 
+              S_{21}\parallel 
+              S_{20}\parallel 
+              S_{23}\parallel 
+              S_{22}\parallel$\par
+\hspace{24pt}$\phantom{S\leftarrow} 
+              S_{6\phantom{0}}\parallel 
+              S_{3\phantom{0}}\parallel  
+              S_{0\phantom{0}}\parallel  
+              S_{5\phantom{0}}\parallel 
+              S_{2\phantom{0}}\parallel 
+              S_{7\phantom{0}}\parallel  
+              S_{4\phantom{0}}\parallel  
+              S_{1\phantom{0}}$;
+\item
+$S_{23}\leftarrow S_{23}\oplus C$;
+\item
+если $\btoi{C}$~--- четное,
+то $C\leftarrow\ShLo(C)$;\\
+иначе $C\leftarrow\ShLo(C)\oplus\hex{AED8E07F99E12BDC}$.
+\end{enumerate}
+\item
+Возвратить~$S$.
+\end{enumerate}

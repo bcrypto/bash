@@ -1,0 +1,37 @@
+\section{Команда \algname{restart}}\label{PRG.Restart}
+
+\subsection{Интерфейс}\label{PRG.Restart.IFace}
+
+Входными данными команды~$\algname{restart}$ являются анонс $A\in\{0,1\}^{32*}$ 
+и ключ $K\in\{0,1\}^{32*}$. Длины $A$ и $K$ не должны превосходить $480$.
+Если $K\neq\perp$, то~$|K|\geq l$.
+
+Выходные данные отсутствуют.
+
+\subsection{Алгоритм}\label{PRG.Restart.Alg}
+
+Команда $\algname{restart}(A,K)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Если $K\neq\perp$:
+\begin{enumerate}
+\item
+$\algname{commit}(\texttt{KEY})$;
+\item
+$r\leftarrow 1536-l-dl/2$.
+\end{enumerate}
+\item
+Иначе, если $K=\perp$:
+\begin{enumerate}
+\item
+$\algname{commit}(\texttt{NULL})$.
+\end{enumerate}
+\item
+Установить
+$pos\leftarrow 8+|A|+|K|$.
+\item
+Установить
+$S[\dots pos)\leftarrow S[\dots pos)\oplus
+\left(\itob{|A|/2+|K|/32}_8\parallel A\parallel K\right)$.
+\end{enumerate}
+

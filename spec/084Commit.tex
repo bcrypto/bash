@@ -1,0 +1,29 @@
+\section{Команда \algname{commit}}\label{PRG.Commit}
+
+\subsection{Интерфейс}\label{PRG.Commit.IFace}
+
+Входными данными команды~\algname{commit} является слово~$t\in\{0,1\}^6$,
+код из последнего столбца таблицы~\ref{Table.PRG.InOut}.
+
+Выходные данные отсутствуют. 
+
+Используется алгоритм~$\algname{bash-f}$, определенный в~\ref{F}.
+
+\subsection{Алгоритм}\label{PRG.Commit.Alg}
+
+Команда $\algname{commit}(t)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Установить
+$S[pos\dots pos+8)\leftarrow S[pos\dots pos+8)\oplus (t\parallel 01)$.
+\item
+Установить
+$S[r]\leftarrow S[r]\oplus 1$.
+\item
+Установить
+$S\leftarrow\algname{bash-f}(S)$.
+\item
+Установить
+$pos\leftarrow 0$.
+\end{enumerate}
+

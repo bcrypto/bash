@@ -1,0 +1,78 @@
+\hiddensection{Хэширование (базовые алгоритмы)}\label{TEST.Hash}
+
+В таблице~\ref{Table.TEST.Hash} представлены примеры хэширования
+с помощью алгоритмов~$\algname{bash-hash}[l]$.
+%
+В таблице для различных уровней стойкости~$l$ приводятся хэш-значения 
+сообщения~$S[\dots 8m)$, где~$S$~--- первое слово в таблице~\ref{Table.TEST.F}.
+
+\clearpage
+
+\begin{table}[H]
+\caption{Хэширование (базовые алгоритмы)}\label{Table.TEST.Hash}
+\begin{tabular}{|c|l|}
+\hline
+$m$ & Хэш-значение\\
+\hline
+%
+\hline
+\multicolumn{2}{|c|}{$l=128$}\\
+\hline
+$0$ &
+$\hex{114C3DFAE373D9BC~BC3602D6386F2D6A~2059BA1BF9048DBA~A5146A6CB775709D}$\\
+\hline
+$127$ &
+$\hex{3D7F4EFA00E9BA33~FEED259986567DCF~5C6D12D51057A968~F14F06CC0F905961}$\\
+\hline                                                        
+$128$ &
+$\hex{D7F428311254B8B2~D00F7F9EEFBD8F30~25FA87C4BABD1BDD~BE87E35B7AC80DD6}$\\
+\hline                                                        
+$135$ &
+$\hex{1393FA1B65172F2D~18946AEAE576FA1C~F54FDD354A0CB297~4A997DC4865D3100}$\\
+%
+\hline
+\hline
+\multicolumn{2}{|c|}{$l=192$}\\
+\hline
+$95$ &
+$\hexz{64334AF830D33F63~E9ACDFA184E32522~103FFF5C6860110A~2CD369EDBC04387C}$\\
+&
+$\hex{501D8F92F749AE4D~E15A8305C353D64D}$\\
+\hline
+$96$ &
+$\hexz{D06EFBC16FD6C088~0CBFC6A4E3D65AB1~01FA82826934190F~AABEBFBFFEDE93B2}$\\
+&
+$\hex{2B85EA72A7FB3147~A133A5A8FEBD8320}$\\
+\hline                                                        
+$108$ &
+$\hexz{FF763296571E2377~E71A1538070CC0DE~88888606F32EEE6B~082788D246686B00}$\\
+&
+$\hex{FC05A17405C55176~99DA44B7EF5F55AB}$\\
+%
+\hline
+\hline
+\multicolumn{2}{|c|}{$l=256$}\\
+\hline                                                        
+$63$ &
+$\hexz{2A66C87C189C12E2~55239406123BDEDB~F19955EAF0808B2A~D705E249220845E2}$\\
+&
+$\hex{0F4786FB6765D0B5~C48984B1B16556EF~19EA8192B985E423~3D9C09508D6339E7}$\\
+\hline                                                                  
+$64$ &                                                          
+$\hexz{07ABBF8580E7E5A3~21E9B940F667AE20~9E2952CEF557978A~E743DB086BAB4885}$\\
+&
+$\hex{B708233C3F5541DF~8AAFC3611482FDE4~98E58B3379A6622D~AC2664C9C118A162}$\\
+\hline                                                                  
+$127$ &                                                         
+$\hexz{526073918F97928E~9D15508385F42F03~ADE3211A23900A30~131F8A1E3E1EE21C}$\\
+&
+$\hex{C09D13CFF6981101~235D895746A4643F~0AA62B0A7BC98A26~9E4507A257F0D4EE}$\\
+\hline                                                                  
+$192$ &                                                         
+$\hexz{8724C7FF8A2A83F2~2E38CB9763777B96~A70ABA3444F214C7~63D93CD6D19FCFDE}$\\
+&
+$\hex{6C3D3931857C4FF6~CCCD49BD99852FE9~EAA7495ECCDD96B5~71E0EDCF47F89768}$\\
+\hline
+\end{tabular}
+\end{table}
+

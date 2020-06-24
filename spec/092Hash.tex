@@ -1,0 +1,31 @@
+\section{Хэширование}\label{PRG.Hash}
+
+\subsection{Интерфейс}\label{PRG.Hash.IFace}
+
+Хэширование задается алгоритмом~$\algname{bash-prg-hash}$.
+Параметрами алгоритма являются уровень стойкости $l\in\{128,192,256\}$
+и емкость $d\in\{1,2\}$. 
+
+Входными данными~$\algname{bash-prg-hash}[l, d]$ являются 
+анонс~$A\in\{0,1\}^{32*}$, хэшируемое сообщение~$X\in\{0,1\}^{8*}$ 
+и длина хэш-значения~$n$. Длина~$A$ не должна превосходить~$480$.
+
+Выходными данными является хэш-значение $Y\in\{0,1\}^n$.
+
+\subsection{Переменные}\label{PRG.Hash.Vars}
+
+Используется автомат~$\alpha$.
+
+\subsection{Алгоритм}\label{PRG.Hash.Alg}
+
+Хэширование $\algname{bash-prg-hash}[l,d](A,X,n)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Выполнить $\alpha.\algname{start}[l,d](A,\perp)$.
+\item
+Выполнить $\alpha.\algname{absorb}(X)$.
+\item
+Вычислить $Y\leftarrow \alpha.\algname{squeeze}(n)$.
+\item
+Возвратить $Y$.
+\end{enumerate}

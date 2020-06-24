@@ -1,0 +1,32 @@
+\section{Команда \algname{absorb}}\label{PRG.Absorb}
+
+\subsection{Интерфейс}\label{PRG.Absorb.IFace}
+
+Входными данными команды~$\algname{absorb}$ является слово~$X\in\{0,1\}^{8*}$.
+
+Выходные данные отсутствуют.
+
+Используются алгоритм~$\algname{bash-f}$, определенный в~\ref{F}.
+
+\subsection{Алгоритм}\label{PRG.Absorb.Alg}
+
+Команда $\algname{absorb}(X)$ выполняется следующим образом:
+\begin{enumerate}
+\item
+Выполнить 
+$\algname{commit}(\texttt{DATA})$.
+\item
+Определить $(X_1,X_2,\ldots,X_n)=\Split(X,r)$.
+\item
+Для $i=1,2,\ldots,n$:
+\begin{enumerate}
+\item
+$pos\leftarrow |X_i|$;
+\item
+$S[\dots pos)\leftarrow S[\dots pos)\oplus X_i$;
+\item
+если $pos=r$, то 
+$S\leftarrow\algname{bash-f}(S)$ и $pos\leftarrow 0$.
+\end{enumerate}
+\end{enumerate}
+

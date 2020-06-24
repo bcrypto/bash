@@ -1,0 +1,54 @@
+\hiddensection{Хэширование (программируемые алгоритмы)}\label{TEST.PrgHash}
+
+В таблице~\ref{Table.TEST.PrgHash} представлены примеры хэширования
+с помощью алгоритмов~$\algname{bash-prg-hash}[l,d]$.
+%
+В таблице для различных пар~$(l,d)$ приводятся хэш-значения 
+сообщения~$S[\dots 8m)$, где~$S$~--- первое слово в таблице~\ref{Table.TEST.F}.
+%
+При хэшировании анонс $A=\perp$, длина хэш-значения $n=2l$.
+
+\begin{table}[H]
+\caption{Хэширование (программируемые алгоритмы)}\label{Table.TEST.PrgHash}
+\begin{tabular}{|c|l|}
+\hline
+$m$ & Хэш-значение\\
+\hline
+%
+\hline
+\multicolumn{2}{|c|}{$(l,d)=(128,2)$}\\
+\hline
+$0$ &
+$\hex{36FA075EC15721F2~50B9A641A8CB99A3~33A9EE7BA8586D06~46CBAC3686C03DF3}$\\
+\hline
+$127$ &
+$\hex{C930FF427307420D~A6E4182969AA1FFC~3310179B8A0EDB3E~20BEC285B568BA17}$\\
+\hline                                                        
+$128$ &
+$\hex{92AD1402C2007191~F2F7CFAD6A2F8807~BB0C50F73DFF95EF~1B8AF08504D54007}$\\
+\hline                                                        
+$150$ &
+$\hex{48DB61832CA10090~03BC0D8BDE67893A~9DC683C48A5BC23A~C884EB4613B480A6}$\\
+%
+\hline
+\hline
+\multicolumn{2}{|c|}{$(l,d)=(192,1)$}\\
+\hline
+$143$ &
+$\hexz{6166032D6713D401~A6BC687CCFFF2E60~3287143A84C78D2C~62C71551E0E2FB2A}$\\
+&
+ $\hex{F6B799EE33B5DECD~7F62F190B1FBB052}$\\
+\hline
+$144$ &
+$\hexz{8D84C82ECD0AB646~8CC451CFC5EEB3B2~98DFD381D200DA69~FBED5AE67D26BAD5}$\\
+&
+ $\hex{C727E2652A225BF4~65993043039E338B}$\\
+\hline                                                        
+$150$ &
+$\hexz{47529F9D499AB6AB~8AD72B1754C90C39~E7DA237BEB16CDFC~00FE87934F5AFC11}$\\
+&
+ $\hex{01862DFA50560F06~2A4DAC859CC13DBC}$\\
+\hline
+\end{tabular}
+\end{table}
+

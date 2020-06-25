@@ -34,7 +34,7 @@ BashV2 additionally defines:
 - `bash-prg-hash` — programmable hashing;
 - `bash-prg-ae` — programmable authenticated encryption.
 
-The Bash automaton is a finite state machine that implements 6 commands:
+The Bash automaton is a finite state machine that implements 7 commands:
 - `start` (initialize the machine using a customization string and/or nonce and/or key);
 - `restart` (reinitialize);
 - `absorb` (input public data);
@@ -44,7 +44,7 @@ The Bash automaton is a finite state machine that implements 6 commands:
 - `ratchet` (transform machine's state in an irreversible manner).
 
 The automaton is parameterized by the security level `l` (128, 192 or 256)
-and capacity level `d` (1 or 2). The latter parameter tunes the security guarantees 
+and the capacity level `d` (1 or 2). The latter parameter tunes the security guarantees 
 in `bash-prg-hash` and determines the key quotas in `bash-prg-ae`.
 
 A programmable algorithm is a sequence of commands of one or more automata.
@@ -62,7 +62,7 @@ Example with 3 automama:
     ...
 
 Here `⊥` is the empty string, `K` and `K1` are keys, 
-`A1` and `A2` are *announces*, that is, arbitrary 
+`A1` and `A2` are *announcements*, that is, arbitrary 
 mixtures of customization strings and nonces.
 
 The `bash-prg-hash` algorithm implements the following program
@@ -73,8 +73,8 @@ The `bash-prg-hash` algorithm implements the following program
     return Y
 
 It provides more flexible functionality than `bash-hash`: 
-additionally processes an announce `A`, outputs the hash `Y` 
-of an arbitrary given length `n`.
+additionally processes a announcement `A`, outputs a hash `Y` 
+of arbitrary given length `n`.
 
 The `bash-prg-ae` algorithm impements the program
 

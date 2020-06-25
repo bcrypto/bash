@@ -30,7 +30,7 @@ The second version of STB 34.101.77 is going to be standardized in 2021.
 
 BashV2 additionally defines:
 - a cryptographic automaton (machine) based on `bash-f`;
-- programmable algorithms based on automata;
+- programmable algorithms based on Bash automata;
 - `bash-prg-hash` — programmable hashing;
 - `bash-prg-ae` — programmable authenticated encryption.
 
@@ -85,7 +85,7 @@ The `bash-prg-ae` algorithm impements the program
       T ← α.squeeze(l)
       yield (Y, T)
 
-Here `X` is a plaintext, `I` is an associated data,
+Here `X` is a plaintext, `I` is associated data,
 `Y` is a ciphertext, and `T` is an authentication tag.
 
 ## What is this repo?

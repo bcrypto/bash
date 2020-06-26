@@ -69,7 +69,7 @@ The `bash-prg-hash` algorithm implements the following program
 
     α.start[l, d](A, ⊥)
     α.absorb(X)
-    Y ← α.squeze(n)
+    Y ← α.squeeze(n)
     return Y
 
 It provides more flexible functionality than `bash-hash`: 

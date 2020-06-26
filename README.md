@@ -15,13 +15,13 @@ Bash algorithms are standardized in Belarus.
 
 ## BashV1
 
-The first version of the official Bash standard, STB 34.101.77, was released in 
+The first version of the Bash standard, STB 34.101.77, was released in 
 2016. This version defines: 
 - `bash-f` — the algorithm of Bash-f;
 - `bash-hash` — hashing.
 
-In `bash-hash`, the sponge-based hashing in the overwrite mode is implemented.
-Hash lengths run from 4 to 64 bytes in steps of 4. Hashing speed (as well as
+In `bash-hash`, sponge-based hashing in the overwrite mode is implemented.
+Hash lengths run from 4 to 64 bytes in steps of 4. The hash rate (as well as
 security guarantees) depends on the hash length.
 
 ## BashV2
@@ -44,11 +44,11 @@ The Bash automaton is a finite state machine that implements 7 commands:
 - `ratchet` (transform machine's state in an irreversible manner).
 
 The automaton is parameterized by the security level `l` (128, 192 or 256)
-and the capacity level `d` (1 or 2). The latter parameter tunes the security guarantees 
-in `bash-prg-hash` and determines the key quotas in `bash-prg-ae`.
+and the capacity level `d` (1 or 2). The latter parameter tunes the security 
+guarantees in `bash-prg-hash` and determines the key quotas in `bash-prg-ae`.
 
 A programmable algorithm is a sequence of commands of one or more automata.
-Example with 3 automama: 
+Example with 3 automata: 
 
     α.start[256, 2](⊥, K)
     α.absorb(I)
@@ -73,7 +73,7 @@ The `bash-prg-hash` algorithm implements the following program
     return Y
 
 It provides more flexible functionality than `bash-hash`: 
-additionally processes a announcement `A`, outputs a hash `Y` 
+additionally processes an announcement `A`, outputs a hash `Y` 
 of arbitrary given length `n`.
 
 The `bash-prg-ae` algorithm impements the program

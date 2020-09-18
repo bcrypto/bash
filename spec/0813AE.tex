@@ -61,14 +61,12 @@ $T\leftarrow \alpha.\algname{squeeze}(l)$;
 
 \begin{note}
 Примечание~1~--- 
-Если $I=\perp$, то шаг~2.1 может быть \addendum{пропущен}.
+Если $I=\perp$, то шаг~2.1 может быть пропущен.
 %
-Если $X=\perp$, то шаг~2.2 \addendum{может быть упрощен: $Y\leftarrow\perp$}.
+Если $X=\perp$, то шаг~2.2 может быть упрощен: $Y\leftarrow\perp$.
 %
-\addendum{
 Пропуск и (или) упрощение шагов должны зеркально повторяться в алгоритме снятия 
-защиты (см. Примечание 5).
-}
+защиты (см. примечание 5).
 \end{note}
 
 \begin{note}
@@ -84,9 +82,9 @@ $T\leftarrow \alpha.\algname{squeeze}(l)$;
 
 \begin{note}
 Примечание~4~--- 
-\addendum{После обработки~$(X,I)$ можно вызвать 
-команду~$\alpha.\algname{ratchet}(\perp)$. Вызов блокирует 
-определение~$X$ по~$(Y,I)$ даже после раскрытия состояния автомата.} 
+После обработки~$(X,I)$ можно вызвать 
+команду~$\alpha.\algname{ratchet}(\perp)$. Вызов блокирует  
+определение~$X$ по~$(Y,I)$ даже после раскрытия состояния автомата. 
 \end{note}
 
 \subsection{Алгоритм снятия защиты}\label{PRG.AE.Unwrap}
@@ -102,7 +100,7 @@ $T\leftarrow \alpha.\algname{squeeze}(l)$;
 \item
 $\alpha.\algname{absorb}(I)$;
 \item
-$X\leftarrow\alpha.\addendum{\algname{decrypt}}(Y)$;
+$X\leftarrow\alpha.\algname{decrypt}(Y)$;
 \item
 если $T\neq\alpha.\algname{squeeze}(l)$, то возвратить~$\perp$;
 \item
@@ -112,7 +110,7 @@ $X\leftarrow\alpha.\addendum{\algname{decrypt}}(Y)$;
 
 \begin{note}
 Примечание~5~--- Расширения алгоритма установки защиты в соответствии 
-с примечаниями~1~--- 4 зеркально переносятся на алгоритм снятия защиты
+с примечаниями~1--4 зеркально переносятся на алгоритм снятия защиты
 с одним уточнением: после возврата~$\perp$ обработка новых пар~$(Y,I,T)$
 должна быть прекращена.
 \end{note}

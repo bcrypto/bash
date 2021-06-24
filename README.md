@@ -2,7 +2,7 @@
 
 ![](figs/bash-logo-small.png)
 
-[![Build Status](https://travis-ci.org/bcrypto/bash.svg?branch=master)](https://travis-ci.org/bcrypto/bash)
+[![Build Status](https://travis-ci.com/bcrypto/bash.svg?branch=master)](https://travis-ci.com/bcrypto/bash)
 
 ## What is Bash?
 

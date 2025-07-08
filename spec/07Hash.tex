@@ -3,13 +3,13 @@
 \section{Интерфейс}\label{HASH.IFace}
 
 Хэширование задается алгоритмом $\algname{bash-hash}$.
-Параметром алгоритма является уровень стойкости~$l\in\{16,32,\ldots,256\}$ 
+Параметром алгоритма является уровень стойкости~$\ell\in\{16,32,\ldots,256\}$ 
 (см.~\ref{COMMON.Strength}).
 
-Входными данными $\algname{bash-hash}[l]$ является хэшируемое 
+Входными данными $\algname{bash-hash}[\ell]$ является хэшируемое 
 сообщение~$X\in\{0,1\}^*$.
 
-Выходными данными является хэш-значение~$Y\in\{0,1\}^{2l}$.
+Выходными данными является хэш-значение~$Y\in\{0,1\}^{2\ell}$.
 
 Используется алгоритм~$\algname{bash-f}$, определенный в~\ref{F}.
 
@@ -19,32 +19,32 @@
 
 \section{Алгоритм}\label{HASH.Alg}
 
-Хэширование~$\algname{bash-hash}[l](X)$ выполняется следующим образом:
+Хэширование~$\algname{bash-hash}[\ell](X)$ выполняется следующим образом:
 \begin{enumerate}
 \item
 Определить
-$(X_1,X_2,\ldots,X_n)=\Split(X\parallel 01, 1536-4l)$.
+$(X_1,X_2,\ldots,X_n)=\Split(X\parallel 01, 1536-4\ell)$.
 
 \item
 Установить 
-$X_n\leftarrow X_n \parallel 0^{1536-4l-|X_n|}$.
+$X_n\leftarrow X_n \parallel 0^{1536-4\ell-|X_n|}$.
 
 \item
 Установить
-$S\leftarrow 0^{1472}\parallel\itob{l/4}_{64}$.
+$S\leftarrow 0^{1472}\parallel\itob{\ell/4}_{64}$.
 
 \item
 Для $i=1,2,\ldots,n$ выполнить:
 \begin{enumerate}
 \item
-$S[\dots 1536-4l)\leftarrow X_i$;
+$S[\dots 1536-4\ell)\leftarrow X_i$;
 \item
 $S\leftarrow\algname{bash-f}(S)$.
 \end{enumerate}
 
 \item
 Установить
-$Y\leftarrow S[\dots 2l)$.
+$Y\leftarrow S[\dots 2\ell)$.
 
 \item
 Возвратить $Y$.

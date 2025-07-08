@@ -4,7 +4,7 @@
 
 Входными данными команды~$\algname{restart}$ являются анонс $A\in\{0,1\}^{32*}$ 
 и ключ $K\in\{0,1\}^{32*}$. Длины $A$ и $K$ не должны превосходить $480$.
-Если $K\neq\perp$, то~$|K|\geq l$.
+Если $K\neq\perp$, то~$|K|\geq\ell$.
 
 Выходные данные отсутствуют.
 
@@ -18,7 +18,7 @@
 \item
 $\algname{commit}(\texttt{KEY})$;
 \item
-$r\leftarrow 1536-l-dl/2$.
+$r\leftarrow 1536-\ell-d\ell/2$.
 \end{enumerate}
 \item
 Иначе, если $K=\perp$:

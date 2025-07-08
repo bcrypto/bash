@@ -3,22 +3,22 @@
 \subsection{Интерфейс}\label{PRG.Start.IFace}
 
 Параметрами команды~\algname{start} являются уровень стойкости 
-$l\in\{128,192,256\}$ и емкость $d\in\{1,2\}$.
+$\ell\in\{128,192,256\}$ и емкость $d\in\{1,2\}$.
 
-Входными данными~$\algname{start}[l,d]$ являются анонс $A\in\{0,1\}^{32*}$
+Входными данными~$\algname{start}[\ell,d]$ являются анонс $A\in\{0,1\}^{32*}$
 и ключ $K\in\{0,1\}^{32*}$. Длины $A$ и $K$ не должны превосходить $480$.
-Если $K\neq\perp$, то~$|K|\geq l$.
+Если $K\neq\perp$, то~$|K|\geq\ell$.
 
 Выходные данные отсутствуют.
 
 \subsection{Алгоритм}\label{PRG.Start.Alg}
 
-Команда $\algname{start}[l,d](A,K)$ выполняется следующим образом:
+Команда $\algname{start}[\ell,d](A,K)$ выполняется следующим образом:
 \begin{enumerate}
 \item
-Если $K\neq\perp$, то $r\leftarrow 1536-l-dl/2$.
+Если $K\neq\perp$, то $r\leftarrow 1536-\ell-d\ell/2$.
 \item
-Иначе, если $K=\perp$, то $r\leftarrow 1536-2dl$.
+Иначе, если $K=\perp$, то $r\leftarrow 1536-2d\ell$.
 \item
 Установить
 $pos\leftarrow 8+|A|+|K|$.
@@ -31,8 +31,8 @@ $S[\dots pos)\leftarrow
 $S[pos\dots 1472)\leftarrow 0^{1472-pos}$.
 \item
 Установить
-$S[1472\ldots)\leftarrow\itob{l/4+d}_{64}$.
+$S[1472\ldots)\leftarrow\itob{\ell/4+d}_{64}$.
 \item
-Сохранить параметры $(l, d, r, pos)$ вместе с состоянием~$S$.
+Сохранить параметры $(\ell, d, r, pos)$ вместе с состоянием~$S$.
 \end{enumerate}
 

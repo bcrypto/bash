@@ -11,11 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build LaTeX
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: bash.tex
           working_directory: spec/
-          args: -jobname=bash -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Upload pdf
         uses: actions/upload-artifact@v4
         with:
